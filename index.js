@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = '7395117543:AAH51W6hRZMOqKpkCFPJSSt2hY-lHtYVSqg';
+const token = '7480365930:AAFEG4KbYFYgY2K7A834NSN71HYU5g4qkOo';
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
@@ -11,17 +11,21 @@ bot.setMyCommands([
 ])
 
 // Matches "/echo [whatever]"
-bot.onText(/\/test/, (msg, match) => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
+bot.onText(/\/start/, (msg) => {
+    // const chatId = msg.chat.id;
+    // const resp = 'Welcome to our game \nHere is the link: https://cheerful-raindrop-1cc61c.netlify.app/' // the captured "whatever"
 
-    const chatId = msg.chat.id;
-    const resp = 'Welcome to our game \nHere is the link: https://cheerful-raindrop-1cc61c.netlify.app/' // the captured "whatever"
+    // // send back the matched "whatever" to the chat
+    // bot.sendMessage(chatId, resp);
 
-    // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, resp);
+    bot.sendGame(msg.chat.id, 'gameZyad')
+
 });
+
+bot.on('callback_query', (c) => {
+    console.log('CB');
+    bot.answerCallbackQuery(c.id, {url: 'https://cheerful-raindrop-1cc61c.netlify.app/'})
+})
 
 // // Listen for any kind of message. There are different kinds of
 // // messages.
