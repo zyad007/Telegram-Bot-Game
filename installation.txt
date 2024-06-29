@@ -1,0 +1,27 @@
+1- Download Git and Install from : https://git-scm.com/downloads
+
+2- Create account on GitHub: https://github.com/
+
+3- Create Repository on GitHub and copy the repository Link
+
+4- In the code folder open CMD
+
+5- Run the following commands in CMD:
+	
+	$ git init
+	$ git add .
+	$ git commit -m init
+	$ git remote add origin <Repo Link that you copied before>
+	$ git push origin master
+
+6- Create a new account using GitHub on Render : https://render.com/
+
+7- Open dashboard and create new Web Service
+
+8- Select Build and deploy from Git
+
+9- in the Build Command input type: npm i
+
+10- in the Start Command input type: node index.js
+
+PS: it's better to use the a paid version as the free version close automatically after not using and make the bot not responding 
