@@ -15,7 +15,11 @@ bot.setMyCommands([
 
 // Matches "/echo [whatever]"
 bot.onText(/\/start/, (msg) => {
+    console.log(`onstart`);
+
     const chat_id = msg.chat.id;
+    console.log(`onstart chat_id=${chat_id}`);
+
     bot.sendGame(chat_id, GAME_NAME);
 });
 
@@ -31,7 +35,9 @@ bot.on('callback_query', (c) => {
 
     // TODO: sanitize
     const url = `${GAME_URL}index.html?user_id=${user_id}&chat_id=${chat_id}`;
-    bot.answerCallbackQuery(c.id, {url: GAME_URL})
+    console.log('callback_query url:' + url);
+
+    bot.answerCallbackQuery(c.id, {url: url})
 })
 
 // // Listen for any kind of message. There are different kinds of
