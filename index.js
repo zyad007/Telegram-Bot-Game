@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 // replace the value below with the Telegram token you receive from @BotFather
 const TOKEN = '7480365930:AAFEG4KbYFYgY2K7A834NSN71HYU5g4qkOo';
 const GAME_NAME = 'gameZyad';
-const GAME_URL = 'https://cheerful-raindrop-1cc61c.netlify.app/';
+const GAME_URL = 'https://chipper-puffpuff-d03cbe.netlify.app/';
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TOKEN, { polling: true });
