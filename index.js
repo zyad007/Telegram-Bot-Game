@@ -62,6 +62,7 @@ bot.on('callback_query', (c) => {
 
     const chat_id = c.message.chat.id;
     const game_name = c.game_short_name;
+    const message_id = c.message.message_id;
 
     console.log(`callback_query data: ${user.username}//${user_id}//${chat_instance}//${chat_id}//${game_name}`);
 
@@ -76,7 +77,7 @@ bot.on('callback_query', (c) => {
     }
 
     // TODO: sanitize
-    const url = `${GAME_URL}index.html?user_id=${user_id}&chat_id=${chat_id}`;
+    const url = `${GAME_URL}index.html?user_id=${user_id}&chat_id=${chat_id}&message_id=${message_id}`;
     return bot.answerCallbackQuery(c.id, { url: url })
 })
 
